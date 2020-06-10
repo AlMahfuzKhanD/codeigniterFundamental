@@ -58,7 +58,7 @@
 						<a href="#"><i class="halflings-icon cog"></i></a>
 					</div>
 					<h2>Login to your account</h2>
-					<form class="form-horizontal" action="http://bootstrapmaster.com/live/metro/index.html" method="post">
+					<form class="form-horizontal" action=" <?php echo base_url()?>admin-login" method="post">
 						<fieldset>
 							
 							<div class="input-prepend" title="Username">
