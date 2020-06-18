@@ -54,3 +54,10 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 $route['admin-login'] = 'admin/login';
+$route['logout'] = 'admin/logout';
+$route['add-student'] = 'admin/add_student';
+$route['manage-student'] = 'admin/manage_student';
+$route['edit-admin'] = 'admin/edit_admin';
+$route['number-validation'] = 'admin/number_validation';
+$route['dashboard'] = 'admin/dashboard';
+
