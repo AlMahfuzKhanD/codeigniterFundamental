@@ -17,10 +17,10 @@
 	<!-- end: Mobile Specific -->
 	
 	<!-- start: CSS -->
-	<link id="bootstrap-style" href="front-end/css/bootstrap.min.css" rel="stylesheet">
-	<link href="front-end/css/bootstrap-responsive.min.css" rel="stylesheet">
-	<link id="base-style" href="front-end/css/style.css" rel="stylesheet">
-	<link id="base-style-responsive" href="front-end/css/style-responsive.css" rel="stylesheet">
+	<link id="bootstrap-style" href="<?php echo base_url(); ?>front-end/css/bootstrap.min.css" rel="stylesheet">
+	<link href="<?php echo base_url(); ?>front-end/css/bootstrap-responsive.min.css" rel="stylesheet">
+	<link id="base-style" href="<?php echo base_url(); ?>front-end/css/style.css" rel="stylesheet">
+	<link id="base-style-responsive" href="<?php echo base_url(); ?>front-end/css/style-responsive.css" rel="stylesheet">
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&amp;subset=latin,cyrillic-ext,latin-ext' rel='stylesheet' type='text/css'>
 	<!-- end: CSS -->
 	
@@ -36,7 +36,7 @@
 	<![endif]-->
 		
 	<!-- start: Favicon -->
-	<link rel="shortcut icon" href="front-end/img/favicon.ico">
+	<link rel="shortcut icon" href="<?php echo base_url(); ?>front-end/img/favicon.ico">
 	<!-- end: Favicon -->
 	
 			<style type="text/css">
@@ -58,12 +58,25 @@
 						<a href="#"><i class="halflings-icon cog"></i></a>
 					</div>
 					<h2>Login to your account</h2>
+
+
+					<?php
+
+					$message = $this->session->userdata('message');
+					if(!empty($message)){
+						echo "<span class='alert alert-danger'>$message</span>";
+						$this->session->unset_userdata('message');
+					}
+
+
+
+					?>
 					<form class="form-horizontal" action=" <?php echo base_url()?>admin-login" method="post">
 						<fieldset>
 							
-							<div class="input-prepend" title="Username">
+							<div class="input-prepend" title="Email">
 								<span class="add-on"><i class="halflings-icon user"></i></span>
-								<input class="input-large span10" name="username" id="username" type="text" placeholder="type username"/>
+								<input class="input-large span10" name="email" id="username" type="text" placeholder="type email"/>
 							</div>
 							<div class="clearfix"></div>
 
@@ -95,10 +108,10 @@
 	
 	<!-- start: JavaScript-->
 
-		<script src="front-end/js/jquery-1.9.1.min.js"></script>
+		<script src="<?php echo base_url(); ?>front-end/js/jquery-1.9.1.min.js"></script>
 	
 
-		<script src="front-end/js/custom.js"></script>
+		<script src="<?php echo base_url(); ?>front-end/js/custom.js"></script>
 	<!-- end: JavaScript-->
 	
 </body>
