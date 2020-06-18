@@ -10,16 +10,30 @@ class Admin extends CI_Controller {
 		$password = $this->input->post('password',true);
 		$this->load->model('admin_model');
 		$result = $this->admin_model->login($email,$password);
+		$sdata = array();
 
 		if($result){
+			$sdata['admin_id'] = $result->$id;
+			$sdata['admin_name'] = $result->$admin_name;
+			$this->session->set_userdata($sdata);
 			redirect('dashboard');
 		}else{
+			$sdata['message'] = 'Email or password invalid';
+			$this->session->set_userdata($sdata);
 			redirect(base_url());
 		}
 
 
 
 		
+	}
+
+	public function logout(){
+		$this->session->unset_userdata('admin_id');
+		$this->session->unset_userdata('admin_name');
+		$sdata['message'] = "logged out successful";
+		$this->session->set_userdata($sdata);
+		redirect(base_url());
 	}
 
 	
