@@ -59,11 +59,7 @@ class Admin extends CI_Controller {
 	// 	}
 	// }
 
-	public function manage_student(){
-		$data = array();
-		$data['admin_content'] = $this->load->view('pages/manage_student','',true);
-		$this->load->view('dashboard', $data);
-	}
+	
 
 	public function edit_admin(){
 		$data = array();
@@ -77,4 +73,30 @@ class Admin extends CI_Controller {
 
 		$this->load->view('dashboard',$data);
 	}
-}
+
+	public function save_student(){
+		$sdata = array();
+		$this->Admin_model->save_student_info();
+		$sdata['message'] = "Student added successfully";
+		$this->session->set_userdata($sdata);
+		redirect('add-student');
+	}
+
+	public function manage_student(){
+		$data = array();
+		$data['student_info'] = $this->Admin_model->student_info();
+		$data['admin_content'] = $this->load->view('pages/manage_student',$data,true);
+		$this->load->view('dashboard', $data);
+	}
+
+	public function edit_student(){
+
+		$data = array();
+		$data['student_info_by_id'] = $this->Admin_model->student_info_by_id($student_id);
+		$data['admin_content'] = $this->load->view('pages/edit_student',$data,true);
+		$this->load->view('pages/edit_student',$data);
+
+	}
+
+
+} // end Admin controller
