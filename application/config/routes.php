@@ -60,4 +60,6 @@ $route['manage-student'] = 'admin/manage_student';
 $route['edit-admin'] = 'admin/edit_admin';
 $route['number-validation'] = 'admin/number_validation';
 $route['dashboard'] = 'admin/dashboard';
+$route['save-student'] = 'admin/save_student';
+$route['edit-student/(.+)'] = 'admin/edit_student/$1';
 
